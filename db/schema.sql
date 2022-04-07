@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS energy_refined;
-CREATE DATABASE energy_refined;
-USE energy_refined;
+DROP DATABASE IF EXISTS categories_db;
+CREATE DATABASE categories_db;
+USE categories_db;
