@@ -1,0 +1,1 @@
+// Foreign Key For User id and Product id
