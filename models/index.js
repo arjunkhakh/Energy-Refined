@@ -3,6 +3,10 @@ const Comment = require ('./Comment');
 const Review = require ('./Review');
 const Product = require ('./Product');
 
+// posts
+
+
+
 
 User.hasMany(Comment, {
     foreignKey: 'user_id',
@@ -13,6 +17,9 @@ User.hasMany(Review, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
+
+
+
 
 Review.belongsTo(Product, {
     foreignKey: 'product_id',
