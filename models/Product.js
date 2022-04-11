@@ -40,6 +40,13 @@ Product.init(
               msg: "Product category must be either 'solar', 'wind' or 'heat'"
             }
         },
+        user_id: {
+          type: DataTypes.INTEGER,
+          references: {
+            model: 'user',
+            key: 'id',
+          },
+        },
       },
       {
         sequelize,
@@ -50,4 +57,4 @@ Product.init(
       }
 )
 
-module.exports = Product
+module.exports = Product;
