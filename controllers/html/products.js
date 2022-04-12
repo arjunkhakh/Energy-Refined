@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Product, User } = require('/Users/poiso/Documents/Project Two/Energy-Refined/models');
+const { Product, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/userpage', withAuth, async (req, res) => {
