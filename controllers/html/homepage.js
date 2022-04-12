@@ -41,6 +41,15 @@ if (req.session.logged_in) {
     res.render('login');
 });
 
+// Get wind cat
+router.get('/windpage', withAuth, async (req, res) => {
 
+  try {
+    const windData = await Product.findAll({
+      where: {
+        category: 'wind'
+      }
+    });
+  }
 
 module.exports = router
