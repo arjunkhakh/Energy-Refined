@@ -1,7 +1,6 @@
 const router = require('express').Router()
 const { Review, User, Product } = require('../../models');
 const withAuth = require('../../utils/auth');
-const { route } = require('./homepage');
 
 router.post('/review', withAuth, async (req, res) => {
 try {
