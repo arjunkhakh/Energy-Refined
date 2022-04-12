@@ -9,6 +9,24 @@
     },
 
     {
+        "name": "Okofen Biomass Boiler",
+        "description": "Production of heating and hot water",
+        "price": 13000,
+        "installationCost": 9000,
+        "paybackAmount": 1500,
+        "category": "heat"
+    },
+
+    {
+        "name": "SD-Wind 12Kw Wind Turbine",
+        "description": "Production of electricity",
+        "price": 45000,
+        "installationCost": 15000,
+        "paybackAmount": 9000,
+        "category": "wind"
+    },
+
+    {
         "name": "SD-Wind 6Kw Wind Turbine",
         "description": "Production of electricity",
         "price": 28000,
@@ -23,6 +41,15 @@
         "price": 6000,
         "installationCost": 3000,
         "paybackAmount": 1200,
+        "category": "solar"
+    },
+
+    {
+        "name": "JA Solar 6Kw System",
+        "description": "Production of electricity",
+        "price": 8000,
+        "installationCost": 4000,
+        "paybackAmount": 1500,
         "category": "solar"
     }
 ]
