@@ -1,3 +1,7 @@
 const router = require('express').Router()
 
-const createUser =  require('./user/creat')
+const review =  require('./review')
+
+router.use('/userpage', review)
+
+module.exports = router
