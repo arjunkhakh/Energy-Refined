@@ -31,4 +31,4 @@ router.get('/windpage', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
   
-  });j
+  });
