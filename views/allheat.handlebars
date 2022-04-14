@@ -1,11 +1,14 @@
+<h1>Heat Products</h1>
 
+{{#each product with category:heat}}
 <div class="container">
   <div class="row">
     <div class="col">
-      Product
+      {{product.name}}
     </div>
     <div class="col">
-      Product Description 
+      {{product.description}}
 </div>
 </div>
 </div>
+{{/each}}
