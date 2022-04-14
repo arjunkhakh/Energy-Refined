@@ -1,5 +1,4 @@
 const router = require("express").Router();
-
 const { Product, Review } = require("../../../models");
 const withAuth = require("../../../utils/auth");
 

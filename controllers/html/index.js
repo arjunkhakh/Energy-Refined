@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
 });
 
 // Information about the user
-router.get("/userpage", withAuth, async (req, res) => {
+router.get("/profile", withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
@@ -36,5 +36,35 @@ router.get("/login", (req, res) => {
 
   res.render("login");
 });
+
+router.get("/logout", (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/profile");
+    return;
+  }
+
+  res.render("login");
+});
+
+router.get("/signup", (req, res) => {
+  res.render("signup");
+});
+
+router.get("/products", (req, res) => {
+  res.render("productchoice");
+});
+
+router.get("/products/solar", (req, res) => {
+  res.render("allsolar");
+});
+
+router.get("/products/heat", (req, res) => {
+  res.render("allheat");
+});
+
+router.get("/products/wind", (req, res) => {
+  res.render("allwind");
+});
+
 
 module.exports = router;
