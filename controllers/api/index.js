@@ -1,9 +1,50 @@
-const router = require('express').Router()
+const router = require("express").Router();
 
-const review =  require('./review')
-const userRoutes = require('./user')
+const productController = require("./products");
+const reviewsController = require("./reviews");
+const userController = require("./users");
+const { User } = require("../../models");
 
-router.use('/userpage', review)
-router.use('/user', userRoutes)
+router.post("/login", async (req, res) => {
+  let userData;
 
-module.exports = router
+  try {
+    userData = await User.findOne({
+      where: {
+        email: req.body.email,
+      },
+    });
+  } catch (error) {
+    res.status(400).send(error.message);
+    return;
+  }
+
+  if (!userData) {
+    res
+      .status(400)
+      .send("Either the email address or the provided password incorrect");
+    return;
+  }
+
+  const validPassword = userData.checkPassword(req.body.password);
+
+  if (!validPassword) {
+    res
+      .status(400)
+      .send("Either the email address or the provided password incorrect");
+    return;
+  }
+
+  req.session.save(() => {
+    req.session.user_id = userData.id;
+    req.session.logged_in = true;
+
+    res.status(200).json(userData.get({ plain: true }));
+  });
+});
+
+router.use("/users", userController);
+router.use("/products", productController);
+router.use("/reviews", reviewsController);
+
+module.exports = router;
