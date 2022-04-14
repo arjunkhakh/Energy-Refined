@@ -16,3 +16,5 @@ router.delete('/userpage', async (req, res) => {
     res.status(400).json(err);
     }
 });
+
+module.exports = router;

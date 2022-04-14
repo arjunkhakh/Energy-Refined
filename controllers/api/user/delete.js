@@ -10,3 +10,5 @@ const { User } = require('../../../models');
         res.status(400).json(err);
       }
   });
+
+  module.exports = router;
