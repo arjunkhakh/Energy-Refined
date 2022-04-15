@@ -58,7 +58,7 @@
 {{/each}} --}}
 
 <center>
-<div class="card" style="width: 18rem;">
+<div class="card project-list" style="width: 18rem;">
   <img class="card-img-top" src="..." alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">{{ name }} ({{ id }})</h5>
@@ -72,5 +72,8 @@
   <div class="card-body">
     <a href="/products/category/{{ category }}" class="card-link">Back to {{ category }}</a>
   </div>
+  <button class="btn btn-sm btn-danger" data-id="{{product.id}}">DELETE</button>
 </div>
 </center>
+
+<script src="/js/deleteProduct.js"></script>
