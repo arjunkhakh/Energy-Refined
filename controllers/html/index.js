@@ -66,5 +66,34 @@ router.get("/products/wind", withAuth, (req, res) => {
   res.render("allwind");
 });
 
+router.get("/products/category/:category", withAuth, async (req, res) => {
+  const category = req.params.category;
+
+  try {
+    const productData = await Product.findAll({
+      where: {
+        category
+      },
+      include: [
+        {
+          model: Review,
+          attributes: ["review_data", "user_id", "date_created", "product_id"],
+        }
+      ]
+    });
+
+    const  products = productData.map(product => product.get({plain: true}));
+
+    res.render( 'products_by_category', {
+      products,
+      category,
+      logged_in: req.session.logged_in
+    })
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+})
+
 
 module.exports = router;

@@ -37,83 +37,85 @@ router.delete("/:id", withAuth, async (req, res) => {
   }
 });
 
-// Get solar cat (/api/products/solar)
-router.get("/solar", withAuth, async (req, res) => {
-  try {
-    const solarData = await Product.findAll({
-      where: {
-        category: "solar",
-      },
-      include: [
-        {
-          model: Review,
-          attributes: ["review_data", "user_id", "date_created", "product_id"],
-        },
-      ],
-    });
+// // Get solar cat (/api/products/solar)
+// router.get("/solar", withAuth, async (req, res) => {
+//   try {
+//     const solarData = await Product.findAll({
+//       where: {
+//         category: "solar",
+//       },
+//       include: [
+//         {
+//           model: Review,
+//           attributes: ["review_data", "user_id", "date_created", "product_id"],
+//         },
+//       ],
+//     });
 
-    const solarProduct = solarData.map((solar) => solar.get({ plain: true }));
+//     const solarProduct = solarData.map((solar) => solar.get({ plain: true }));
 
-    res.render("allsolar", {
-      solarProduct,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render("allsolar", {
+//       solarProduct,
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
-// Get wind cat (/api/products/wind)
-router.get("/wind", withAuth, async (req, res) => {
-  try {
-    const windData = await Product.findAll({
-      where: {
-        category: "wind",
-      },
-      include: [
-        {
-          model: Review,
-          attributes: ["review_data", "user_id", "date_created", "product_id"],
-        },
-      ],
-    });
+// // Get wind cat (/api/products/wind)
+// router.get("/wind", withAuth, async (req, res) => {
+//   try {
+//     const windData = await Product.findAll({
+//       where: {
+//         category: "wind",
+//       },
+//       include: [
+//         {
+//           model: Review,
+//           attributes: ["review_data", "user_id", "date_created", "product_id"],
+//         },
+//       ],
+//     });
 
-    const windProduct = windData.map((wind) => wind.get({ plain: true }));
+//     const windProducts = windData.map((wind) => wind.get({ plain: true }));
 
-    res.render("allwind", {
-      windProduct,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     console.log(JSON.stringify(windProducts))
 
-// Get heat cat (/api/products/heat)
-router.get("/heat", withAuth, async (req, res) => {
-  try {
-    const heatData = await Product.findAll({
-      where: {
-        category: "heat",
-      },
-      include: [
-        {
-          model: Review,
-          attributes: ["review_data", "user_id", "date_created", "product_id"],
-        },
-      ],
-    });
+//     res.render("allwind", {
+//       windProducts,
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
-    const heatProduct = heatData.map((heat) => heat.get({ plain: true }));
+// // Get heat cat (/api/products/heat)
+// router.get("/heat", withAuth, async (req, res) => {
+//   try {
+//     const heatData = await Product.findAll({
+//       where: {
+//         category: "heat",
+//       },
+//       include: [
+//         {
+//           model: Review,
+//           attributes: ["review_data", "user_id", "date_created", "product_id"],
+//         },
+//       ],
+//     });
 
-    res.render("allheat", {
-      heatProduct,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     const heatProduct = heatData.map((heat) => heat.get({ plain: true }));
+
+//     res.render("allheat", {
+//       heatProduct,
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 
 module.exports = router;

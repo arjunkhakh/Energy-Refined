@@ -1,6 +1,6 @@
-<h1>Wind Products</h1>
+<h1>{{ category }} Products</h1>
 
-{{#each windProducts as |product| }}
+{{#each products as |product| }}
 <p>{{product.name}}</p>
 <div class="container">
   <div class="row">
@@ -9,7 +9,7 @@
     </div>
     <div class="col">
       {{product.description}}
-</div>
-</div>
+    </div>
+  </div>
 </div>
 {{/each}}
