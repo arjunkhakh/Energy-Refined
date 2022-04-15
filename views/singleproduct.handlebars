@@ -1,19 +1,19 @@
-<div class="jumbotron text-center my-0 py-3 px-0">
+{{!-- <div class="jumbotron text-center my-0 py-3 px-0">
     <h1 class="display-4 font-weight-bold px-0">View Item <i class="fas fa-store-alt"></i></h1>
   </div>
-  <div class="row my-3 mx-0" id="item-row">
+  <div class="row my-3 mx-0" id="item-row"> --}}
     {{!-- {{#each categoryitems}} --}}
     {{!-- template called by inside the category_items.handlebars file to show all the items from the database for logged in user --}}
-    <div class="col-10 col-md-6 col-lg-4 mx-auto">
+    {{!-- <div class="col-10 col-md-6 col-lg-4 mx-auto">
       <div class="card p-1 m-2 text-center shadow-lg rounded-lg">
         <div class="card-header text-secondary px-0 px-0">
           <h4><span class="badge badge-pill badge-primary"> Item: </span> {{name}}</h4>
         </div>
         <div class="card-body p-1 font-weight-bold">
-          {{!-- <img src="../images/{{image_name}}" class="item-image" alt="Item Display image"> --}}
+          <img src="../images/{{image_name}}" class="item-image" alt="Item Display image"> --}} --}}
           {{!-- <p class="card-text">{{description}}</p> --}}
           {{!-- <p class="card-text">ItemID: <span class="badge badge-pill badge-primary py-2 mt-1 mb-0">{{id}}</span> |
-            Cost: <span class="badge badge-pill badge-primary py-2 mt-1 mb-0"> ${{price}}</span></p> --}}
+            Cost: <span class="badge badge-pill badge-primary py-2 mt-1 mb-0"> ${{price}}</span></p>
         </div>
         <div class="card-footer">
           </button>
@@ -22,7 +22,7 @@
     </div>
     {{/each}}
     <!-- If no items to display show Catch all no items to display card -->
-    {{!-- {{#unless categoryitems}} --}}
+    {{#unless categoryitems}}
     <div class="col-sm-10 col-md-8 col-lg-6 col-xl-4 mx-auto">
       <div class="card p-1 m-2 text-center shadow-lg rounded-lg">
         <div class="card-header text-secondary px-0 px-0">
@@ -38,5 +38,39 @@
         </div>
       </div>
     </div>
-    {{!-- {{/unless}} --}}
+    {{/unless}}
+   </div>  --}}
+
+  <h1 id="categoryTitle">{{ name }}</h1>
+
+{{!-- {{#each products as |product| }}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      {{product.name}} (Product ID - {{product.id}})
+    </div>
+    <div class="col">
+      {{product.description}}
+      {{product.Review.review_data}}
+    </div>
   </div>
+</div>
+{{/each}} --}}
+
+<center>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{ name }} ({{ id }})</h5>
+    <p class="card-text">{{ description }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Price: £{{ price }}</li>
+    <li class="list-group-item">Installation Cost: £{{ installationCost }}</li>
+    <li class="list-group-item">Payback Amount: £{{ paybackAmount }}</li>
+  </ul>
+  <div class="card-body">
+    <a href="/products/category/{{ category }}" class="card-link">Back to {{ category }}</a>
+  </div>
+</div>
+</center>

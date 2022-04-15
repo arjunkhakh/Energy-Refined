@@ -54,17 +54,17 @@ router.get("/products", (req, res) => {
   res.render("productchoice");
 });
 
-router.get("/products/solar", withAuth, (req, res) => {
-  res.render("allsolar");
-});
+// router.get("/products/solar", withAuth, (req, res) => {
+//   res.render("allsolar");
+// });
 
-router.get("/products/heat", withAuth, (req, res) => {
-  res.render("allheat");
-});
+// router.get("/products/heat", withAuth, (req, res) => {
+//   res.render("allheat");
+// });
 
-router.get("/products/wind", withAuth, (req, res) => {
-  res.render("allwind");
-});
+// router.get("/products/wind", withAuth, (req, res) => {
+//   res.render("allwind");
+// });
 
 router.get("/products/category/:category", withAuth, async (req, res) => {
   const category = req.params.category;
@@ -87,6 +87,29 @@ router.get("/products/category/:category", withAuth, async (req, res) => {
     res.render( 'products_by_category', {
       products,
       category,
+      logged_in: req.session.logged_in
+    })
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+})
+
+router.get("/products/:id", withAuth, async (req, res) => {
+  try {
+    const productData = await Product.findByPk(req.params.id,{
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const products = productData.get({ plain: true });
+
+    res.render( 'singleproduct', {
+      ...products,
       logged_in: req.session.logged_in
     })
   } catch (err) {
