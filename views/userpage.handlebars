@@ -1,74 +1,75 @@
+<br>
+<center><h2>Welcome, {{name}}!</h2></center>
+<br>
+<center><h4><button class="btn btn-primary"<a href="/profile/edit">Edit Profile Here</a></button></h4></center>
 
-    <center><h2>Welcome, {{name}}!</h2></center>
-    <center><h4><a href="/profile/edit">Edit Profile Here</a></h4></center>
+<div class="row mt-6">
+<div class="col-md-12">
+ <div class="row d-flex justify-content-center">
+  <div class="col-12 col-md-6 p-5 shadow-lg p-md-5 my-4 bg-white rounded">
+<h3>Create a New Product:</h3>
 
-
-<div class="row mt-4">
-  <div class="col-md-6">
-     <div class="row d-flex justify-content-center">
-      <div class="col-12 col-md-6 p-5 shadow-lg p-md-5 my-4 bg-white rounded">
-    <h3>Create a New Product:</h3>
-
-   
-    <form class="form new-product-form">
-      <div class="form-group">
-        <label for="product-name">Product Name:</label>
-        <br>
-        <input class="form-input" type="text" id="product-name" name="product-name" />
-      </div>
-      <div class="form-group">
-        <label for="product-price">Price (£):</label>
-        <br>
-        <input class="form-input" type="number" id="product-price" name="product-price" />
-      </div>
-      <div class="form-group">
-        <label for="product-price">Installation Cost (£):</label>
-        <br>
-        <input class="form-input" type="number" id="product-inst" name="product-inst" />
-      </div>
-      <div class="form-group">
-        <label for="product-price">Yearly Savings (£):</label>
-        <br>
-        <input class="form-input" type="number" id="yearly-savings" name="yearly-savings" />
-      </div>
-      <div class="form-group">
-        <label for="product-desc">Description:</label>
-        <br>
-        <textarea class="form-input" id="product-desc" name="product-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="product-desc">Category:</label>
-        {{!-- <textarea class="form-input" id="product-category" name="product-category"></textarea> --}}
-        <select name="product-category" id="product-category">
-        <option value ="solar">Solar</option>
-        <option value ="heat">Heat</option>
-        <option value ="wind">Wind</option>
-        </select> 
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-      </div>
-      </div>
-    </form>
+<form class="form new-product-form">
+  <div class="form-group">
+    <label for="product-name">Product Name:</label>
+    <br>
+    <input class="form-input" type="text" id="product-name" name="product-name" />
   </div>
-
-  {{#if products}}
-  <div class="col-md-6 product-list">
-    <h3>Current products:</h3>
-
-    {{#each products as |product|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/products/{{product.id}}">{{product.name}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{product.id}}">DELETE</button>
-      </div>
-    </div>
-    {{/each}}
+  <div class="form-group">
+    <label for="product-price">Price (£):</label>
+    <br>
+    <input class="form-input" type="number" id="product-price" name="product-price" />
   </div>
-  {{/if}}
+  <div class="form-group">
+    <label for="product-price">Installation Cost (£):</label>
+    <br>
+    <input class="form-input" type="number" id="product-inst" name="product-inst" />
+  </div>
+  <div class="form-group">
+    <label for="product-price">Yearly Savings (£):</label>
+    <br>
+    <input class="form-input" type="number" id="yearly-savings" name="yearly-savings" />
+  </div>
+  <div class="form-group">
+    <label for="product-desc">Description:</label>
+    <br>
+    <textarea class="form-input" id="product-desc" name="product-desc"></textarea>
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="product-desc">Category:</label>
+    {{!-- <textarea class="form-input" id="product-category" name="product-category"></textarea> --}}
+    <select name="product-category" id="product-category">
+    <option value ="solar">Solar</option>
+    <option value ="heat">Heat</option>
+    <option value ="wind">Wind</option>
+    </select> 
+  </div>
+  <br>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Create</button>
+  </div>
+  </div>
+  </div>
+</form>
+</div>
+
+{{#if products}}
+<div class="col-md-6 product-list">
+<h3>Current products:</h3>
+
+{{#each products as |product|}}
+<div class="row mb-2">
+  <div class="col-md-8">
+    <h4><a href="/products/{{product.id}}">{{product.name}}</a></h4>
+  </div>
+  <div class="col-md-4">
+    <button class="btn btn-sm btn-danger" data-id="{{product.id}}">DELETE</button>
+  </div>
+</div>
+{{/each}}
+</div>
+{{/if}}
 </div>
 
 <script src="./js/profile.js"></script>
