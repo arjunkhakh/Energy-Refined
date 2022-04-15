@@ -3,12 +3,17 @@ const newFormHandler = async (event) => {
   
     const name = document.querySelector('#product-name').value.trim();
     const price = document.querySelector('#product-price').value.trim();
+    const installation = document.querySelector('#product-inst').value.trim();
+    const savings = document.querySelector('#yearly-savings').value.trim();
     const description = document.querySelector('#product-desc').value.trim();
+    const pcategory = document.querySelector('#product-category').value.trim(); 
+
   
-    if (name && price && description) {
+    if (name && price && installation && savings && description && pcategory) {
       const response = await fetch(`/api/products`, {
         method: 'POST',
-        body: JSON.stringify({ name, price, description }),
+        body: JSON.stringify({ name, price, installation, savings, 
+        description, pcategory }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -17,7 +22,7 @@ const newFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/profile');
       } else {
-        alert('Failed to create project');
+        alert('Failed to create product');
       }
     }
   };
