@@ -1,8 +1,9 @@
-<div class="row">
-  <div class="col-auto">
+{{!-- <div class="row">
+  <div class="col-auto"> --}}
     <center><h2>Welcome, {{name}}!</h2></center>
-  </div>
-</div>
+    <center><h4><a href="/profile/edit">Edit Profile Here</a></h4></center>
+  {{!-- </div>
+</div> --}}
 
 <div class="row mt-4">
   <div class="col-md-6">
@@ -54,7 +55,7 @@
     </form>
   </div>
 
-  {{!-- {{#if products.length}}
+  {{#if products}}
   <div class="col-md-6 product-list">
     <h3>Current products:</h3>
 
@@ -70,6 +71,6 @@
     {{/each}}
   </div>
   {{/if}}
-</div> --}}
+</div>
 
 <script src="./js/profile.js"></script>
