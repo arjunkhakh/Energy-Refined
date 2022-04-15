@@ -54,15 +54,15 @@ router.get("/products", (req, res) => {
   res.render("productchoice");
 });
 
-router.get("/products/solar", (req, res) => {
+router.get("/products/solar", withAuth, (req, res) => {
   res.render("allsolar");
 });
 
-router.get("/products/heat", (req, res) => {
+router.get("/products/heat", withAuth, (req, res) => {
   res.render("allheat");
 });
 
-router.get("/products/wind", (req, res) => {
+router.get("/products/wind", withAuth, (req, res) => {
   res.render("allwind");
 });
 

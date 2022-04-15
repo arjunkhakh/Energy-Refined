@@ -8,62 +8,49 @@
     <link rel="stylesheet" href="./public/css/style.css">
     <title>Document</title>
 </head>
-<header>
-    <nav class="navbar navbar-dark bg-dark">
-       <button class="navbar-toggler">
-        <li><a class="nav-link" href="#">Homepage</a></li>
-        </button>
 
-        <button class="navbar-toggler">
-        <li><a class="nav-link" href="#">Forum</a></li>
-        </button>
-
-        <button class="navbar-toggler">
-        <li><a class="nav-link" href="#">Login</a></li>
-        </button>
-
-        <button class="navbar-toggler">
-        <li><a class="nav-link" href="#">Logout</a></li>
-        </button>
-      </nav>
-</header>
-<body>
-    <center>
-        <h1>HOMEPAGE</h1>
-    <div class="container-fluid">
-        <div class="row">
-          <div class="col" id="text1">
-            <img src="https://www.pngitem.com/pimgs/m/234-2345463_flame-flames-clipart-paper-fire-transparent-png-flames.png" alt="Heat" width="440px" height="600px">
-          </div>
-          <div class="col" id="text1">
-            Heat - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate suscipit omnis repellat, magni unde molestias nihil doloremque molestiae tempore ipsam rem excepturi voluptates. Animi dolore officiis eveniet at dolorum labore, blanditiis reprehenderit assumenda similique dignissimos nobis eos accusamus doloremque deserunt ducimus autem facilis pariatur sit quaerat beatae, sunt ipsa nam, doloribus nihil? Facere consectetur similique ipsam quisquam. Assumenda architecto est, voluptas quae repellendus nulla illum culpa ducimus similique tempore ad eum aliquam porro eveniet, sit modi vitae nobis velit aspernatur ratione. Accusamus labore voluptas quaerat et qui omnis, aliquam impedit quibusdam ipsa debitis earum veniam repellat eaque consequatur reprehenderit sint!
-          </div>
-        </div>
-        <br>
-        <br>
-        <div class="row">
-          <div class="col" id="text2">
-            <img src="https://www.pinclipart.com/picdir/big/565-5651972_solar-panel-png-sun-emoji-white-background-clipart.png" alt="Solar">
-          </div>
-          <div class="col" id="text2">
-            Solar - Lorem ipsum dolor sit amet consectetur adipisicing elit. Id inventore sit in consequatur quam sequi rem. Autem odio ducimus asperiores natus adipisci ab vero commodi omnis at, eveniet magnam beatae culpa atque ipsum tempore excepturi. Iusto, doloremque esse tempore alias dignissimos corporis eum magni magnam? Iste reprehenderit, vitae quisquam excepturi atque enim temporibus natus voluptates distinctio dignissimos adipisci commodi quidem provident fugiat magnam nobis ex eveniet iure. Facilis, praesentium assumenda quibusdam saepe tempora quia sed eos, nulla, error ducimus perferendis. Suscipit, excepturi sunt! At quod voluptatibus officiis nisi aliquid libero, reprehenderit error aliquam modi ducimus quidem magni minus maxime fuga. Exercitationem impedit officia esse quod quibusdam soluta ipsum, eaque ab cupiditate aut autem, consectetur repellat voluptas ipsa reiciendis. Earum corrupti adipisci a ipsam explicabo minima, dolorum, velit quia ut molestias consequatur tenetur commodi praesentium temporibus sint sunt totam, rem maiores? Officia perspiciatis dolorum saepe cum quisquam quo aspernatur ullam. Earum, magnam unde! Fugit dignissimos repellat, unde sit aliquid sed alias quod porro laudantium, beatae error magnam rerum officia! Esse eos quod enim iste. Iure necessitatibus tenetur aliquid voluptas accusamus! Totam asperiores placeat laboriosam exercitationem consequatur, voluptatibus natus aliquid a porro debitis perspiciatis repellat vel quae quam quidem soluta? Dignissimos, temporibus.
-         </div>
-        </div>
-        <br>
-        <br>
-        <div class="row">
-        <div class="col" id="text3">
-            <img src="https://www.seekpng.com/png/detail/388-3881701_wind-turbine-clip-art.png" alt="Wind">
-        </div>
-        <div class="col" id="text3">
-            Wind - Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt est doloribus omnis error aliquid dignissimos temporibus alias aspernatur doloremque asperiores facilis, placeat fugit sunt molestiae quidem quibusdam numquam vel provident accusamus voluptas blanditiis magni. Perspiciatis accusantium iure est commodi. Commodi recusandae fuga sunt asperiores illum earum beatae, magni dignissimos reiciendis placeat repellendus autem molestias quis dolor rem enim deleniti voluptatem minus iure, obcaecati provident maiores. Magnam dicta qui quaerat delectus quasi dolor architecto placeat ratione temporibus aliquid esse culpa inventore totam necessitatibus adipisci sint, cumque mollitia assumenda doloribus illo iste aperiam eos ut! Provident natus, quis rerum sint quo consectetur.
-        </div>
-        </div>
+{{!-- LOGGED IN USER BROWSING CATEGORY ITEMS PAGE  --}}
+<div class="jumbotron text-center my-0 py-3 px-0">
+  <h1 class="display-4 font-weight-bold px-0">Shop Items <i class="fas fa-store-alt"></i></h1>
+</div>
+<div class="row my-3 mx-0" id="item-row">
+  {{#each categoryitems}}
+  {{!-- template called by inside the category_items.handlebars file to show all the items from the database for logged in user --}}
+  <div class="col-10 col-md-6 col-lg-4 mx-auto">
+    <div class="card p-1 m-2 text-center shadow-lg rounded-lg">
+      <div class="card-header text-secondary px-0 px-0">
+        <h4><span class="badge badge-pill badge-primary"> Item: </span> {{name}}</h4>
       </div>
-      </center>
-</body>
+      <div class="card-body p-1 font-weight-bold">
+        <img src="../images/{{image_name}}" class="item-image" alt="Item Display image">
+        <p class="card-text">{{description}}</p>
+        <p class="card-text">ItemID: <span class="badge badge-pill badge-primary py-2 mt-1 mb-0">{{id}}</span> |
+          Cost: <span class="badge badge-pill badge-primary py-2 mt-1 mb-0"> ${{price}}</span></p>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn badge-pill btn-sm btn-primary add-item stretched-link" data-id="{{id}}" data-price="{{price}}" value="{{id}}" data-toggle="tooltip" title="Add {{name}} to your cart.">
+          Add To Cart <i class="fas fa-cart-plus"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+  <!-- If no items to display show Catch all no items to display card -->
+  {{#unless categoryitems}}
+  <div class="col-sm-10 col-md-8 col-lg-6 col-xl-4 mx-auto">
+    <div class="card p-1 m-2 text-center shadow-lg rounded-lg">
+      <div class="card-header text-secondary px-0 px-0">
+        <h4> No Items to display</h4>
+      </div>
 
-<footer>
-    Made By Arjun + Dylan + Najma
-</footer>
-</html>
+      <div class="card-body p-1 text-lead">
+        <p>Sorry! We couldn't find any items currently</p>
+      </div>
+
+      <div class="card-footer">
+        <a class="btn btn-primary" href="/"><i class="fas fa-store-alt"> Categories View</i></a>
+      </div>
+    </div>
+  </div>
+  {{/unless}}
+</div>
