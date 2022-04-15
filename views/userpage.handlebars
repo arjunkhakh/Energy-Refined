@@ -1,40 +1,55 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
+    <center><h2>Welcome, {{name}}!</h2></center>
   </div>
 </div>
 
 <div class="row mt-4">
   <div class="col-md-6">
+     <div class="row d-flex justify-content-center">
+      <div class="col-12 col-md-6 p-5 shadow-lg p-md-5 my-4 bg-white rounded">
     <h3>Create a New Product:</h3>
 
+   
     <form class="form new-product-form">
       <div class="form-group">
         <label for="product-name">Product Name:</label>
+        <br>
         <input class="form-input" type="text" id="product-name" name="product-name" />
       </div>
       <div class="form-group">
         <label for="product-price">Price (£):</label>
+        <br>
         <input class="form-input" type="number" id="product-price" name="product-price" />
       </div>
       <div class="form-group">
         <label for="product-price">Installation Cost (£):</label>
+        <br>
         <input class="form-input" type="number" id="product-inst" name="product-inst" />
       </div>
       <div class="form-group">
         <label for="product-price">Payback Amount (£):</label>
+        <br>
         <input class="form-input" type="number" id="product-payback" name="product-payback" />
       </div>
       <div class="form-group">
         <label for="product-desc">Description:</label>
+        <br>
         <textarea class="form-input" id="product-desc" name="product-desc"></textarea>
       </div>
       <div class="form-group">
         <label for="product-desc">Category:</label>
-        <textarea class="form-input" id="product-category" name="product-category"></textarea>
+        {{!-- <textarea class="form-input" id="product-category" name="product-category"></textarea> --}}
+        <select name="product-category" id="product-category">
+        <option value ="solar">Solar</option>
+        <option value ="heat">Heat</option>
+        <option value ="wind">Wind</option>
+        </select> 
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+      </div>
       </div>
     </form>
   </div>
