@@ -55,3 +55,7 @@ footer {
     align-items: center;
     justify-content: center;
 }
+
+#categoryTitle{
+    font-variant-caps: small-caps;
+}

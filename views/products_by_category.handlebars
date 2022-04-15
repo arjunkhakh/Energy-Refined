@@ -1,11 +1,10 @@
-<h1>{{ category }} Products</h1>
+<h1 id="categoryTitle">{{ category }} products</h1>
 
 {{#each products as |product| }}
-<p>{{product.name}}</p>
 <div class="container">
-  <div class="row">
+  <div class="row"> 
     <div class="col">
-      {{product.name}}
+      <a href="/products/{{ product.id }}">{{product.name}} (Product ID - {{product.id}})</a>
     </div>
     <div class="col">
       {{product.description}}
@@ -13,3 +12,4 @@
   </div>
 </div>
 {{/each}}
+
