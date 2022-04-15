@@ -3,7 +3,7 @@ const { Product, Review } = require("../../../models");
 const withAuth = require("../../../utils/auth");
 
 // create a new product (/api/products/)
-router.post("/", withAuth, async (req, res) => {
+router.post("/create", withAuth, async (req, res) => {
   try {
     const newProduct = await Product.create({
       ...req.body,

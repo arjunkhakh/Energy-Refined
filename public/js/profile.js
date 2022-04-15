@@ -10,7 +10,7 @@ const newFormHandler = async (event) => {
 
   
     if (name && price && installation && savings && description && pcategory) {
-      const response = await fetch(`/api/products`, {
+      const response = await fetch(`/api/products/create`, {
         method: 'POST',
         body: JSON.stringify({ name, price, installation, savings, 
         description, pcategory }),
