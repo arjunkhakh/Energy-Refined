@@ -35,10 +35,10 @@ Product.init(
         category: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
+            // validate: {
               isIn: [['solar', 'wind', 'heat']],
               msg: "Product category must be either 'solar', 'wind' or 'heat'"
-            }
+            // }
         },
         user_id: {
           type: DataTypes.INTEGER,
