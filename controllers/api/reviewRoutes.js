@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const { Review } = require("../../../models");
-const withAuth = require("../../../utils/auth");
+const { Review } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-// Add a review to a product (/api/reviews/:id)
+// Add a review to a product (POST /api/reviews/:id)
 router.post("/", withAuth, async (req, res) => {
   try {
     const newReview = await Review.create({
@@ -16,7 +16,7 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-// Delete a review (/api/reviews/:reviewId)
+// Delete a review (DELETE /api/reviews/:reviewId)
 router.delete("/:reviewId", withAuth, async (req, res) => {
   try {
     const reviewData = await Review.destroy({
@@ -37,8 +37,8 @@ router.delete("/:reviewId", withAuth, async (req, res) => {
   }
 });
 
-// edit review (/api/reviews/:reviewId)
-router.put("/review/:reviewId", withAuth, async (req, res) => {
+// edit review (PUT /api/reviews/:reviewId)
+router.put("/:reviewId", withAuth, async (req, res) => {
   try {
     const reviewData = await Review.update({
       where: {

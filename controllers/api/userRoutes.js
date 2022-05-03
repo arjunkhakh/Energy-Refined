@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const { User } = require("../../../models");
-const withAuth = require("../../../utils/auth");
+const { User } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-// Create a user (/api/users)
+// Create a user (POST /api/users)
 router.post("/", async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Edit a user (/api/users)
+// Edit the current user (PUT /api/users)
 router.put("/", withAuth, async (req, res) => {
   try {
     const userData = await User.update(req.body, {
@@ -33,7 +33,7 @@ router.put("/", withAuth, async (req, res) => {
   }
 });
 
-// Delete a user (/api/users/123)
+// Delete the current user (DELETE /api/users)
 router.delete("/", async (req, res) => {
   try {
     const userData = await User.destroy(req.body);
@@ -41,17 +41,6 @@ router.delete("/", async (req, res) => {
     res.status(200).json(userData);
   } catch (err) {
     res.status(400).json(err);
-  }
-});
-
-// logout
-router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
   }
 });
 
