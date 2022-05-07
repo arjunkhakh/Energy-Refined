@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const { Product, User, Review } = require("../../models");
-const withAuth = require("../../utils/auth");
+const { Product, User, Review } = require("../models");
+const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
@@ -121,6 +121,5 @@ router.get("/products/:id", withAuth, async (req, res) => {
     res.status(500).json(err)
   }
 })
-
 
 module.exports = router;

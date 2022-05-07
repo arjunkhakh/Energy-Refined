@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const { Product, Review } = require("../../../models");
-const withAuth = require("../../../utils/auth");
+const { Product, Review } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-// create a new product (/api/products/)
+// create a new product (POST /api/products)
 router.post("/create", withAuth, async (req, res) => {
   try {
     const newProduct = await Product.create({
@@ -16,7 +16,7 @@ router.post("/create", withAuth, async (req, res) => {
   }
 });
 
-// delete a product (/api/products/:id)
+// delete a product (DELETE /api/products/:id)
 router.delete("/:id", withAuth, async (req, res) => {
   try {
     const productData = await Product.destroy({
